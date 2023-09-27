@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../css/NavBar.module.css'
+import style from '../../css/NavBar.module.css'
 
 const CartWidget = () => {
 return (
