@@ -1,13 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import ItemCategoryContainer from '../Item/ItemCategoryContainer';
+import './../../css/App.css'
 
 const Category = () => {
-    const {category} = useParams();
+    const { category } = useParams();
     return (
-    <div>
-        <ItemCategoryContainer category={category}/>
-    </div>
+        <div className='alto-2'>
+            <ItemCategoryContainer category={category} />
+        </div>
     )
 }
 

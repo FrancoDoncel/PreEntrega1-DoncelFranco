@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import style from '../../css/NavBar.module.css'
+import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 
 const CartWidget = () => {
-return (
-    <a href="" className={style.enlace}>
-        <div className={style.cartWidget}>
-        {/* <a href=""><img src="src/assets/icon/bag-heart.svg" alt="" className={style.cartWidget}/></a> */}
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white"  viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-        </svg>
-        <div className={style.numeroCarro}>
-        <p>4</p>
-        </div>
-    </div>
-    </a>
-)
+    const { cantidadEnCarrito } = useContext(CartContext);
+    return (
+        <Link className={style.enlace} to='/carrito'>
+            <div className={style.cartWidget}>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+                </svg>
+                <div className={style.numeroCarro}>
+                    <p>{cantidadEnCarrito()}</p>
+                </div>
+            </div>
+        </Link>
+    )
 }
 
 export default CartWidget
